@@ -1,40 +1,23 @@
-import java.util.Arrays;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Deck {
-    private int deckSize;
     private Card[] cards = new Card[52];
 
     //Deck Constructor
-    public Deck(int deckSize){
-        setDeckSize(deckSize);
+    public Deck(){
         populateDeck();
     }
 
-    //mutators and accessors
-
-    public int getDeckSize() {
-        return deckSize;
-    }
-
-    public void setDeckSize(int deckSize) {
-        this.deckSize = deckSize;
-    }
-
-    //populate deck array
-    private boolean checkIfDrawn(Card card){
-        for (int i = 0; i < 52; i++) {
-            if(card == cards [i]){
-                return true;
-            }
-        }
-        return false;
-    }
+    //User-Defined Methods
 
     private void populateDeck(){
-        for (int i = 0; i < 52; i++) {
-            Card newCard = new Card();
-            while(checkIfDrawn(newCard)){
-                cards[i] = newCard;
+        String[][] cardAtt = new String[][]{{"Ace","2","3","4","5","6","7","8","9","10","Jack","Queen","King"},{"Diamonds","Hearts","Spades","Clubs"}};
+
+        for (int i = 0; i < cards.length; i++) {
+            for (int j = 0; j < 13; j++) {
+                for (int k = 0; k < 4; k++) {
+                    cards[i] = new Card(cardAtt[0][j], cardAtt[1][k]);
+                }
             }
         }
     }
