@@ -38,6 +38,8 @@ public class Card {
          setSuit(cardAtt[1][random2]);
 
     }
+    //Set an image for each card
+
     // To String
     @Override
     public String toString() {
