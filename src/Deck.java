@@ -9,6 +9,12 @@ public class Deck {
         populateDeck();
     }
 
+    //mutators and accessors
+
+    public ArrayList<Card> getCards(){
+        return cards;
+    }
+
     //User-Defined Methods
 
     private void populateDeck(){
@@ -20,9 +26,19 @@ public class Deck {
         for (int i = 0; i < 4; i++){
 
             for (int j = 0; j < 13; j++) {
-                cards.add(new Card(cardAtt[0][j], cardAtt[1][i]));
+                getCards().add(new Card(cardAtt[0][j], cardAtt[1][i]));
                 }
             }
+    }
+    public void shuffle(){
+        //Collections.shuffle was found at https://roytuts.com/how-to-shuffle-an-arraylist-using-java/#:~:text=Shuffle%20means%20rearrange%20the%20elements%20of%20the%20ArrayList,on%20the%20maximum%20size%20of%20the%20existing%20ArrayList.
+        Collections.shuffle(getCards());
+    }
+
+    public Card getCardAt(int index){
+        Card cardPicked = getCards().get(index);
+        getCards().remove(index);
+        return cardPicked;
     }
 
     //To String
@@ -30,16 +46,8 @@ public class Deck {
     public String toString(){
         String output = "";
         for (int i = 0; i < 52; i++) {
-            output += cards.get(i) + "\n\n";
+            output += getCards().get(i) + "\n\n";
         }
-
-        //Collections.shuffle was found at https://roytuts.com/how-to-shuffle-an-arraylist-using-java/#:~:text=Shuffle%20means%20rearrange%20the%20elements%20of%20the%20ArrayList,on%20the%20maximum%20size%20of%20the%20existing%20ArrayList.
-        String output1 = "";
-        Collections.shuffle(cards);
-        for (int i = 0; i < 52; i++) {
-            output1 += cards.get(i) + "\n\n";
-        }
-
-        return "Cards: \n\n" + output + "\n\n" + cards.size() + "\n\n" + output1;
+        return "Cards: \n\n" + output;
     }
 }
