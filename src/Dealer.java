@@ -11,6 +11,12 @@ public class Dealer extends Person{
         }
     }
 
+    public void underSeventeen(Deck deck){
+        while(allCardVal() < 17){
+            giveCard(deck.getCardAt(0));
+        }
+    }
+
     public void hitCard(Player player,Deck deck){
         player.giveCard(deck.getCardAt(0));
     }

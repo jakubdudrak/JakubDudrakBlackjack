@@ -12,14 +12,27 @@ public class TestCard {
         Deck deck1 = new Deck();
         System.out.println("\n" + deck1);
         */
-       // boolean gameOver =
-       // while (!gameOver)
+        // boolean gameOver =
+        // while (!gameOver)
+        deck.shuffle();
+        house.dealCards(player, deck);
+
         System.out.println("Dealer cards");
         System.out.print(house.getCards() + "\n\n");
+        System.out.println(house.allCardVal());
 
         System.out.println("Player cards");
         System.out.print(player.getCards() + "\n\n");
-/*
+        System.out.println(player.allCardVal());
+
+        while (!player.isBust()) {
+            house.hitCard(player, deck);
+            System.out.println("Player cards");
+            System.out.print(player.getCards() + "\n\n");
+            System.out.println(player.allCardVal());
+            if (player.isBust())
+                System.out.println("Player went bust");
+/*      }
         File saveFile = new File("playerInfo.dat");
         FileOutputStream savePlayerFileStr = new FileOutputStream(saveFile);
         ObjectOutputStream savePlayerStream = new ObjectOutputStream(savePlayerFileStr);
@@ -51,6 +64,6 @@ public class TestCard {
 */
 
 
-
+        }
     }
 }

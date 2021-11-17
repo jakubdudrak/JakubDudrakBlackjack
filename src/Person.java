@@ -39,4 +39,23 @@ public class Person {
     public void giveCard(Card card) {
         cards.add(card);
     }
+
+    public int allCardVal(){
+        int counter = 0;
+        for (int i = 0; i < getCards().size(); i++) {
+            counter += getCards().get(i).convertVal();
+        }
+        return counter;
+    }
+
+    public boolean isBust(){
+        int counter = 0;
+        for (int i = 0; i < getCards().size(); i++) {
+            counter += getCards().get(i).convertVal();
+        }
+        if(counter >21)
+            return true;
+        else
+            return false;
+    }
 }
