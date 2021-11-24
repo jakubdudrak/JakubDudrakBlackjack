@@ -50,9 +50,18 @@ public class Person {
 
     public boolean isBust(){
         int counter = 0;
-        for (int i = 0; i < getCards().size(); i++) {
-            counter += getCards().get(i).convertVal();
-        }
+            for (int i = 0; i < getCards().size(); i++) {
+                counter += getCards().get(i).convertVal();
+            }
+            if(counter>21){
+                for (int i = 0; i < getCards().size(); i++) {
+                    if(getCards().get(i).getValue().equals("Ace")){
+                        getCards().get(i).setValue("Ace One");
+                        break;
+                    }
+                }
+            }
+
         if(counter >21)
             return true;
         else

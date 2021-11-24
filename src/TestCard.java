@@ -7,14 +7,16 @@ public class TestCard {
         Deck deck = new Deck();
         Player player = new Player("Jakub", 500);
         Dealer house = new Dealer();
+        GameGui GameGui = new GameGui();
 
+        GameGui.renderFrameGame();
        /*
         Deck deck1 = new Deck();
         System.out.println("\n" + deck1);
         */
         // boolean gameOver =
         // while (!gameOver)
-        deck.shuffle();
+        /*deck.shuffle();
         house.dealCards(player, deck);
 
         System.out.println("Dealer cards");
@@ -31,7 +33,7 @@ public class TestCard {
             System.out.print(player.getCards() + "\n\n");
             System.out.println(player.allCardVal());
             if (player.isBust())
-                System.out.println("Player went bust");
+                System.out.println("Player went bust");*/
 /*      }
         File saveFile = new File("playerInfo.dat");
         FileOutputStream savePlayerFileStr = new FileOutputStream(saveFile);
@@ -66,4 +68,4 @@ public class TestCard {
 
         }
     }
-}
+//}

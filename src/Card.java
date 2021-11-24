@@ -29,7 +29,7 @@ public class Card {
 
     public int convertVal(){
         switch (getValue()) {
-            case "Ace":
+            case "Ace One":
                 return 1;
             case "2":
                 return 2;
@@ -51,6 +51,8 @@ public class Card {
             case "Queen":
             case "King":
                 return 10;
+            case "Ace":
+                return 11;
         }
         return 0;
     }
