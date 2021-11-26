@@ -9,7 +9,7 @@ public class TestCard {
         Dealer house = new Dealer();
         GameGui GameGui = new GameGui();
 
-        GameGui.renderFrameGame();
+        GameGui.renderFrameGame(player, deck, house);
        /*
         Deck deck1 = new Deck();
         System.out.println("\n" + deck1);
