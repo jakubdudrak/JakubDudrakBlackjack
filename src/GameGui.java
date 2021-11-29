@@ -13,6 +13,7 @@ public class GameGui {
 
     public void renderFrameGame(Player player, Deck deck, Dealer dealer){
         BackgroundPanel background = new BackgroundPanel(new ImageIcon(("Assets\\CardsImgs\\BlackJackBoard.png")).getImage());
+        GamePanel game = new GamePanel(player, dealer);
         JFrame frameGame = new JFrame();
         JTextArea gameConsole = new JTextArea();
         JButton continueButton = new JButton("Hit");
@@ -23,6 +24,7 @@ public class GameGui {
         //https://www.javatpoint.com/BoxLayout
         frameGame.setLayout(new BorderLayout(0, 20));
 
+        frameGame.add(game,BorderLayout.SOUTH);
         frameGame.add(background, BorderLayout.CENTER);
         frameGame.add(continueButton, BorderLayout.WEST);
         frameGame.add(backButton, BorderLayout.EAST);
@@ -31,6 +33,7 @@ public class GameGui {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     dealer.hitCard(player, deck);
+                    game.updateFrame(player);
                 }
             });
 

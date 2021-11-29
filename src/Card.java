@@ -63,11 +63,11 @@ public class Card {
         return 0;
     }
 
-    public Image getImg(Card card){
+    public Image getImg(){
 
         try {
-            if(card.getSuit().equals("Hearts")) {
-                switch (card.getValue()) {
+            if(this.getSuit().equals("Hearts")) {
+                switch (this.getValue()) {
                     case "Ace":
                     case "Ace One":
                         return new ImageIcon("JakubDudrakBlackjack\\Assets\\AceHearts.png").getImage();
@@ -95,6 +95,99 @@ public class Card {
                         return new ImageIcon("JakubDudrakBlackjack\\Assets\\QueenHearts.png").getImage();
                     case "King":
                         return new ImageIcon("JakubDudrakBlackjack\\Assets\\KingHearts.png").getImage();
+                }
+            }
+            if(this.getSuit().equals("Diamonds")) {
+                switch (this.getValue()) {
+                    case "Ace":
+                    case "Ace One":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\AceDiamonds.png").getImage();
+                    case "2":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\TwoDiamonds.png").getImage();
+                    case "3":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\ThreeDiamonds.png").getImage();
+                    case "4":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\FourDiamonds.png").getImage();
+                    case "5":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\FiveDiamonds.png").getImage();
+                    case "6":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\SixDiamonds.png").getImage();
+                    case "7":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\SevenDiamonds.png").getImage();
+                    case "8":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\EightDiamonds.png").getImage();
+                    case "9":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\NineDiamonds.png").getImage();
+                    case "10":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\TenDiamonds.png").getImage();
+                    case "Jack":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\JackDiamonds.png").getImage();
+                    case "Queen":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\QueenDiamonds.png").getImage();
+                    case "King":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\KingDiamonds.png").getImage();
+                }
+            }
+            if(this.getSuit().equals("Spades")) {
+                switch (this.getValue()) {
+                    case "Ace":
+                    case "Ace One":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\AceSpades.png").getImage();
+                    case "2":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\TwoSpades.png").getImage();
+                    case "3":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\ThreeSpades.png").getImage();
+                    case "4":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\FourSpades.png").getImage();
+                    case "5":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\FiveSpades.png").getImage();
+                    case "6":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\SixSpades.png").getImage();
+                    case "7":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\SevenSpades.png").getImage();
+                    case "8":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\EightSpades.png").getImage();
+                    case "9":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\NineSpades.png").getImage();
+                    case "10":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\TenSpades.png").getImage();
+                    case "Jack":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\JackSpades.png").getImage();
+                    case "Queen":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\QueenSpades.png").getImage();
+                    case "King":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\KingSpades.png").getImage();
+                }
+            }
+            if(this.getSuit().equals("Clubs")) {
+                switch (this.getValue()) {
+                    case "Ace":
+                    case "Ace One":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\AceClubs.png").getImage();
+                    case "2":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\TwoClubs.png").getImage();
+                    case "3":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\ThreeClubs.png").getImage();
+                    case "4":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\FourClubs.png").getImage();
+                    case "5":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\FiveClubs.png").getImage();
+                    case "6":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\SixClubs.png").getImage();
+                    case "7":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\SevenClubs.png").getImage();
+                    case "8":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\EightClubs.png").getImage();
+                    case "9":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\NineClubs.png").getImage();
+                    case "10":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\TenClubs.png").getImage();
+                    case "Jack":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\JackClubs.png").getImage();
+                    case "Queen":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\QueenClubs.png").getImage();
+                    case "King":
+                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\KingClubs.png").getImage();
                 }
             }
         }
