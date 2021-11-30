@@ -10,6 +10,8 @@ public class TestCard {
         GameGui GameGui = new GameGui();
 
         deck.shuffle();
+        deck.shuffle();
+        deck.shuffle();
         house.dealCards(player,deck);
         GameGui.renderFrameGame(player, deck, house);
        /*

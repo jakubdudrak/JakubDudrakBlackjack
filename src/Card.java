@@ -133,6 +133,8 @@ public class Card {
             }
             if(this.getSuit().equals("Spades")) {
                 switch (this.getValue()) {
+                    case "Back":
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\CardBack.png")));
                     case "Ace":
                     case "Ace One":
                         return ImageIO.read(new File(("Assets\\CardsImgs\\AceSpades.png")));
