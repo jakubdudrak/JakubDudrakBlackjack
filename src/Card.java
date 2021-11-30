@@ -3,7 +3,6 @@ import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Card {
     private String value;
@@ -70,31 +69,31 @@ public class Card {
                 switch (this.getValue()) {
                     case "Ace":
                     case "Ace One":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\AceHearts.png").getImage();
+                        return new ImageIcon("Assets\\AceHearts.png").getImage();
                     case "2":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\TwoHearts.png").getImage();
+                        return new ImageIcon("Assets\\TwoHearts.png").getImage();
                     case "3":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\ThreeHearts.png").getImage();
+                        return new ImageIcon("Assets\\ThreeHearts.png").getImage();
                     case "4":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\FourHearts.png").getImage();
+                        return new ImageIcon("Assets\\FourHearts.png").getImage();
                     case "5":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\FiveHearts.png").getImage();
+                        return new ImageIcon("Assets\\FiveHearts.png").getImage();
                     case "6":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\SixHearts.png").getImage();
+                        return new ImageIcon("Assets\\SixHearts.png").getImage();
                     case "7":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\SevenHearts.png").getImage();
+                        return new ImageIcon("Assets\\SevenHearts.png").getImage();
                     case "8":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\EightHearts.png").getImage();
+                        return new ImageIcon("Assets\\EightHearts.png").getImage();
                     case "9":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\NineHearts.png").getImage();
+                        return new ImageIcon("Assets\\NineHearts.png").getImage();
                     case "10":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\TenHearts.png").getImage();
+                        return new ImageIcon("Assets\\TenHearts.png").getImage();
                     case "Jack":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\JackHearts.png").getImage();
+                        return new ImageIcon("Assets\\JackHearts.png").getImage();
                     case "Queen":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\QueenHearts.png").getImage();
+                        return new ImageIcon("Assets\\QueenHearts.png").getImage();
                     case "King":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\KingHearts.png").getImage();
+                        return new ImageIcon("Assets\\KingHearts.png").getImage();
                 }
             }
             if(this.getSuit().equals("Diamonds")) {

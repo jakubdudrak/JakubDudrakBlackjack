@@ -9,6 +9,8 @@ public class TestCard {
         Dealer house = new Dealer();
         GameGui GameGui = new GameGui();
 
+        deck.shuffle();
+        house.dealCards(player,deck);
         GameGui.renderFrameGame(player, deck, house);
        /*
         Deck deck1 = new Deck();
