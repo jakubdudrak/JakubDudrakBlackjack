@@ -1,5 +1,7 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -63,137 +65,139 @@ public class Card {
     }
 
     public Image getImg(){
+        //ImageIO.read and file loading bug was got from Ibrahim Khalid
 
         try {
             if(this.getSuit().equals("Hearts")) {
+
                 switch (this.getValue()) {
                     case "Ace":
                     case "Ace One":
-                        return new ImageIcon("Assets\\AceHearts.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\AceHearts.png"));
                     case "2":
-                        return new ImageIcon("Assets\\TwoHearts.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\TwoHearts.png"));
                     case "3":
-                        return new ImageIcon("Assets\\ThreeHearts.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\ThreeHearts.png"));
                     case "4":
-                        return new ImageIcon("Assets\\FourHearts.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\FourHearts.png"));
                     case "5":
-                        return new ImageIcon("Assets\\FiveHearts.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\FiveHearts.png"));
                     case "6":
-                        return new ImageIcon("Assets\\SixHearts.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\SixHearts.png"));
                     case "7":
-                        return new ImageIcon("Assets\\SevenHearts.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\SevenHearts.png"));
                     case "8":
-                        return new ImageIcon("Assets\\EightHearts.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\EightHearts.png"));
                     case "9":
-                        return new ImageIcon("Assets\\NineHearts.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\NineHearts.png"));
                     case "10":
-                        return new ImageIcon("Assets\\TenHearts.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\TenHearts.png"));
                     case "Jack":
-                        return new ImageIcon("Assets\\JackHearts.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\JackHearts.png"));
                     case "Queen":
-                        return new ImageIcon("Assets\\QueenHearts.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\QueenHearts.png"));
                     case "King":
-                        return new ImageIcon("Assets\\KingHearts.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\KingHearts.png"));
                 }
             }
             if(this.getSuit().equals("Diamonds")) {
                 switch (this.getValue()) {
                     case "Ace":
                     case "Ace One":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\AceDiamonds.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\AceDiamonds.png"));
                     case "2":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\TwoDiamonds.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\TwoDiamonds.png"));
                     case "3":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\ThreeDiamonds.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\ThreeDiamonds.png"));
                     case "4":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\FourDiamonds.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\FourDiamonds.png"));
                     case "5":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\FiveDiamonds.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\FiveDiamonds.png"));
                     case "6":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\SixDiamonds.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\SixDiamonds.png"));
                     case "7":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\SevenDiamonds.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\SevenDiamonds.png"));
                     case "8":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\EightDiamonds.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\EightDiamonds.png"));
                     case "9":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\NineDiamonds.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\NineDiamonds.png"));
                     case "10":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\TenDiamonds.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\TenDiamonds.png"));
                     case "Jack":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\JackDiamonds.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\JackDiamonds.png"));
                     case "Queen":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\QueenDiamonds.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\QueenDiamonds.png"));
                     case "King":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\KingDiamonds.png").getImage();
+                        return ImageIO.read(new File("Assets\\CardsImgs\\KingDiamonds.png"));
                 }
             }
             if(this.getSuit().equals("Spades")) {
                 switch (this.getValue()) {
                     case "Ace":
                     case "Ace One":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\AceSpades.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\AceSpades.png")));
                     case "2":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\TwoSpades.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\TwoSpades.png")));
                     case "3":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\ThreeSpades.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\ThreeSpades.png")));
                     case "4":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\FourSpades.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\FourSpades.png")));
                     case "5":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\FiveSpades.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\FiveSpades.png")));
                     case "6":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\SixSpades.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\SixSpades.png")));
                     case "7":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\SevenSpades.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\SevenSpades.png")));
                     case "8":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\EightSpades.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\EightSpades.png")));
                     case "9":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\NineSpades.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\NineSpades.png")));
                     case "10":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\TenSpades.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\TenSpades.png")));
                     case "Jack":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\JackSpades.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\JackSpades.png")));
                     case "Queen":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\QueenSpades.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\QueenSpades.png")));
                     case "King":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\KingSpades.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\KingSpades.png")));
                 }
             }
             if(this.getSuit().equals("Clubs")) {
                 switch (this.getValue()) {
                     case "Ace":
                     case "Ace One":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\AceClubs.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\AceClubs.png")));
                     case "2":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\TwoClubs.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\TwoClubs.png")));
                     case "3":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\ThreeClubs.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\ThreeClubs.png")));
                     case "4":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\FourClubs.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\FourClubs.png")));
                     case "5":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\FiveClubs.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\FiveClubs.png")));
                     case "6":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\SixClubs.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\SixClubs.png")));
                     case "7":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\SevenClubs.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\SevenClubs.png")));
                     case "8":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\EightClubs.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\EightClubs.png")));
                     case "9":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\NineClubs.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\NineClubs.png")));
                     case "10":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\TenClubs.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\TenClubs.png")));
                     case "Jack":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\JackClubs.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\JackClubs.png")));
                     case "Queen":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\QueenClubs.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\QueenClubs.png")));
                     case "King":
-                        return new ImageIcon("JakubDudrakBlackjack\\Assets\\KingClubs.png").getImage();
+                        return ImageIO.read(new File(("Assets\\CardsImgs\\KingClubs.png")));
                 }
             }
         }
         //catch(FileNotFoundException fnfe){ fnfe.printStackTrace(); JOptionPane.showMessageDialog(null,"File could not be found!", "Problem Finding File!",JOptionPane.ERROR_MESSAGE); }
         //catch(IOException ioe){ ioe.printStackTrace(); JOptionPane.showMessageDialog(null,"File could not be read!", "Problem Writing to File!",JOptionPane.ERROR_MESSAGE); }
         //catch (ClassNotFoundException cnfe) { cnfe.printStackTrace();JOptionPane.showMessageDialog(null,"Could not convert object to the appropriate class!","Problem Converting Object Read From File!",JOptionPane.ERROR_MESSAGE); }
-        catch (ClassCastException cce) { cce.printStackTrace(); JOptionPane.showMessageDialog(null,"Could not convert the object to the appropriate class!","Problem Converting Object!", JOptionPane.ERROR_MESSAGE); }
+        catch (ClassCastException | IOException cce) { cce.printStackTrace(); JOptionPane.showMessageDialog(null,"Could not convert the object to the appropriate class!","Problem Converting Object!", JOptionPane.ERROR_MESSAGE); }
     return null;
     }
 
