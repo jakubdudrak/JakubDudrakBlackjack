@@ -93,14 +93,15 @@ public class GameGui {
                 background.cards[3] = player.getCards().get(player.getCards().size()-1);
 
                 if(player.isBust()){
+                    //https://stackoverflow.com/questions/17979438/how-to-perform-action-on-ok-of-joptionpane-showmessagedialog
+                    background.paintComponent(background.getGraphics());
                     JOptionPane.showMessageDialog(frameGame, "You went BUST! :(", "Game Over", JOptionPane.ERROR_MESSAGE);
-                    frameGame.dispose();
-                    player.setBalance(getEnteredBal() + player.getBalance());
+                    player.setBalance(getEnteredBal() - player.getBalance());
                     setGameOver(true);
                     setPlayerWon(false);
                 }
 
-                background.paintComponent(background.getGraphics());
+
             }
         });
 
@@ -117,10 +118,10 @@ public class GameGui {
                 }
                 if(dealer.isBust()){
                     JOptionPane.showMessageDialog(frameGame, "You WON! $$$", "Game Over", JOptionPane.PLAIN_MESSAGE);
-                    frameGame.dispose();
-                    player.setBalance(player.getBalance() - getEnteredBal());
+                    player.setBalance(enteredBal + player.getBalance());
                     setGameOver(true);
                     setPlayerWon(true);
+
                 }
                 background.paintComponent(background.getGraphics());
             }

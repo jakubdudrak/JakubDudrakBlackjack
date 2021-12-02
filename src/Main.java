@@ -46,7 +46,8 @@ public class Main {
                 Deck deck = new Deck();
                 Player player = new Player(JOptionPane.showInputDialog("Please Enter a Name"), Integer.parseInt(JOptionPane.showInputDialog("Please Enter Balance")));
                 Dealer house = new Dealer();
-                new GameGui().renderFrameGame(player,deck,house);
+                GameGui game = new GameGui();
+                game.renderFrameGame(player,deck,house);
             }
         });
 
