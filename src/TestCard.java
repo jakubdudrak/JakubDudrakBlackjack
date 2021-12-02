@@ -13,7 +13,7 @@ public class TestCard {
         deck.shuffle();
         deck.shuffle();
         house.dealCards(player,deck);
-        GameGui.renderFrameGame(player, deck, house);
+        //GameGui.renderFrameGame(player, deck, house);
        /*
         Deck deck1 = new Deck();
         System.out.println("\n" + deck1);

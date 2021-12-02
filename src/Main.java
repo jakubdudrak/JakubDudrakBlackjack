@@ -6,7 +6,8 @@ import java.awt.image.BufferedImage;
 
 public class Main {
     public static void main(String[] args) {
-
+        Deck deck = new Deck();
+        Dealer house = new Dealer();
         JFrame mainMenu = new JFrame("BlackJack!");
         JButton startGame = new JButton("Start Game");
         JPanel controls = new JPanel();{
@@ -40,18 +41,34 @@ public class Main {
         mainMenu.add(backgroundMenu);
         mainMenu.add(controls, BorderLayout.SOUTH);
 
+        mainMenu.setVisible(true);
+        Player player = new Player(JOptionPane.showInputDialog("Please Enter a Name"), Integer.parseInt(JOptionPane.showInputDialog("Please Enter Balance")));
+
         startGame.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Deck deck = new Deck();
-                Player player = new Player(JOptionPane.showInputDialog("Please Enter a Name"), Integer.parseInt(JOptionPane.showInputDialog("Please Enter Balance")));
-                Dealer house = new Dealer();
+
                 GameGui game = new GameGui();
-                game.renderFrameGame(player,deck,house);
+                if(game.isGameOver()) {
+                    for (int i = 0; i < player.getCards().size(); i++) {
+                        deck.getCards().add(player.getCards().get(i));
+                        player.getCards().remove(i);
+                    }
+                    for (int i = 0; i < house.getCards().size(); i++) {
+                        deck.getCards().add(house.getCards().get(i));
+                        house.getCards().remove(i);
+                    }
+                    deck.shuffle();
+                    game.renderFrameGame(player, house);
+                }
+                else{
+                    deck.shuffle();
+                    game.renderFrameGame(player, house);
+                }
             }
         });
 
-        mainMenu.setVisible(true);
+
 /*
         game.renderFrameGame(player, deck, house);
 */

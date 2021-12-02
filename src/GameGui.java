@@ -3,10 +3,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.util.EventListener;
 
 //https://www.tutorialspoint.com/swing/swing_event_handling.htm
-public class GameGui {
+public class GameGui extends Main{
 
     private boolean gameOver;
     private boolean playerWon;
@@ -40,7 +41,8 @@ public class GameGui {
         this.gameOver = gameOver;
     }
 
-    public void renderFrameGame(Player player, Deck deck, Dealer dealer){
+    public void renderFrameGame(Player player, Dealer dealer){
+        Deck deck = new Deck();
         dealer.dealCards(player, deck);
         BackgroundPanel background = new BackgroundPanel(new ImageIcon(("Assets\\CardsImgs\\BlackJackBoard.png")).getImage(),player,dealer,deck);
 
@@ -91,14 +93,16 @@ public class GameGui {
                 dealer.hitCard(player, deck);
                 playerScore.setText("Player Cards: " + player.allCardVal());
                 background.cards[3] = player.getCards().get(player.getCards().size()-1);
-
+                background.paintComponent(background.getGraphics());
                 if(player.isBust()){
                     //https://stackoverflow.com/questions/17979438/how-to-perform-action-on-ok-of-joptionpane-showmessagedialog
                     background.paintComponent(background.getGraphics());
                     JOptionPane.showMessageDialog(frameGame, "You went BUST! :(", "Game Over", JOptionPane.ERROR_MESSAGE);
-                    player.setBalance(getEnteredBal() - player.getBalance());
+                    player.setBalance((getEnteredBal() - player.getBalance()));
                     setGameOver(true);
                     setPlayerWon(false);
+                    player.setCards(new ArrayList<Card>());
+                    frameGame.dispose();
                 }
 
 
@@ -116,14 +120,15 @@ public class GameGui {
                     }
 
                 }
-                if(dealer.isBust()){
+                if(dealer.isBust() || dealer.allCardVal() > 17){
+                    background.paintComponent(background.getGraphics());
                     JOptionPane.showMessageDialog(frameGame, "You WON! $$$", "Game Over", JOptionPane.PLAIN_MESSAGE);
-                    player.setBalance(enteredBal + player.getBalance());
+                    player.setBalance((enteredBal + player.getBalance()));
+                    dealer.setCards(new ArrayList<Card>());
                     setGameOver(true);
                     setPlayerWon(true);
-
                 }
-                background.paintComponent(background.getGraphics());
+
             }
         });
 
