@@ -7,7 +7,30 @@ import java.util.EventListener;
 
 //https://www.tutorialspoint.com/swing/swing_event_handling.htm
 public class GameGui {
-    private boolean gameOver = false;
+
+    private boolean gameOver;
+    private boolean playerWon;
+    private int enteredBal;
+
+    public boolean isPlayerWon() {
+        return playerWon;
+    }
+
+    public int getEnteredBal() {
+        return enteredBal;
+    }
+
+    public void setEnteredBal(int enteredBal) {
+        this.enteredBal = enteredBal;
+    }
+
+    public boolean playerWon() {
+        return playerWon;
+    }
+
+    public void setPlayerWon(boolean playerWon) {
+        this.playerWon = playerWon;
+    }
 
     public boolean isGameOver() {
         return gameOver;
@@ -18,14 +41,22 @@ public class GameGui {
     }
 
     public void renderFrameGame(Player player, Deck deck, Dealer dealer){
+        dealer.dealCards(player, deck);
         BackgroundPanel background = new BackgroundPanel(new ImageIcon(("Assets\\CardsImgs\\BlackJackBoard.png")).getImage(),player,dealer,deck);
 
         JFrame frameGame = new JFrame();
         JTextArea gameConsole = new JTextArea();
-        JLabel playerScore = new JLabel("Player Cards: " + player.getCardsValue());
+
+        JLabel playerScore = new JLabel(player.getName() + " Cards: " + player.getCardsValue());
+        JLabel dealerScore = new JLabel(dealer.getName() + " Cards: " + dealer.getCardsValue());
+        JLabel playerBal = new JLabel(player.getName() + " Balance: €" + player.getBalance());
+
         JButton continueButton = new JButton("Hit");
         JButton backButton = new JButton("Stand");
         JPanel controls = new JPanel();{
+            controls.add(playerBal);
+            playerScore.setBounds(550,800,200,30);
+
             controls.add(playerScore);
             playerScore.setBounds(550,820,200,30);
 
@@ -34,9 +65,14 @@ public class GameGui {
 
             controls.add(backButton);
             backButton.setBounds(650,850,100,40);
+
+            controls.add(dealerScore);
+            playerScore.setBounds(550,870,200,30);
         }
 
         frameGame.setTitle("Blackjack!");
+        //https://www.tutorialspoint.com/how-to-display-a-jframe-to-the-center-of-a-screen-in-java#:~:text=A%20JFrame%20is%20like%20a%20Window%20with%20border%2C,using%20the%20setLocationRelativeTo%20%28%29%20method%20of%20Window%20class.
+        //frameGame.setLocationRelativeTo(null);
         frameGame.setSize(1285,1050);
         //https://www.javatpoint.com/BoxLayout
         frameGame.setLayout(new BorderLayout(0, 20));
@@ -58,7 +94,10 @@ public class GameGui {
 
                 if(player.isBust()){
                     JOptionPane.showMessageDialog(frameGame, "You went BUST! :(", "Game Over", JOptionPane.ERROR_MESSAGE);
+                    frameGame.dispose();
+                    player.setBalance(getEnteredBal() + player.getBalance());
                     setGameOver(true);
+                    setPlayerWon(false);
                 }
 
                 background.paintComponent(background.getGraphics());
@@ -77,13 +116,17 @@ public class GameGui {
 
                 }
                 if(dealer.isBust()){
-                    JOptionPane.showMessageDialog(frameGame, "You WON! $$$", "Game Over",JOptionPane.PLAIN_MESSAGE);
+                    JOptionPane.showMessageDialog(frameGame, "You WON! $$$", "Game Over", JOptionPane.PLAIN_MESSAGE);
+                    frameGame.dispose();
+                    player.setBalance(player.getBalance() - getEnteredBal());
                     setGameOver(true);
+                    setPlayerWon(true);
                 }
                 background.paintComponent(background.getGraphics());
             }
         });
 
         frameGame.setVisible(true);
+        JOptionPane.showInputDialog("");
     }
 }
