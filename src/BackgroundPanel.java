@@ -27,7 +27,6 @@ public class BackgroundPanel extends JPanel{
 
             dealerCards[3] = dealer.getCards().get(dealer.getCards().size()-1);
             dealerCards[2] = dealer.getCards().get(dealer.getCards().size()-2);
-
         }
 
         @Override

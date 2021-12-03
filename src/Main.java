@@ -50,20 +50,14 @@ public class Main {
 
                 GameGui game = new GameGui();
                 if(game.isGameOver()) {
-                    for (int i = 0; i < player.getCards().size(); i++) {
-                        deck.getCards().add(player.getCards().get(i));
-                        player.getCards().remove(i);
-                    }
-                    for (int i = 0; i < house.getCards().size(); i++) {
-                        deck.getCards().add(house.getCards().get(i));
-                        house.getCards().remove(i);
-                    }
+                    player.getCards().clear();
+                    house.getCards().clear();
                     deck.shuffle();
-                    game.renderFrameGame(player, house);
+                    game.renderFrameGame(player, house, deck);
                 }
                 else{
                     deck.shuffle();
-                    game.renderFrameGame(player, house);
+                    game.renderFrameGame(player, house, deck);
                 }
             }
         });

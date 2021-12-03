@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.EventListener;
 
 //https://www.tutorialspoint.com/swing/swing_event_handling.htm
-public class GameGui extends Main{
+public class GameGui{
 
     private boolean gameOver;
     private boolean playerWon;
@@ -41,8 +41,8 @@ public class GameGui extends Main{
         this.gameOver = gameOver;
     }
 
-    public void renderFrameGame(Player player, Dealer dealer){
-        Deck deck = new Deck();
+    public void renderFrameGame(Player player, Dealer dealer, Deck deck){
+
         dealer.dealCards(player, deck);
         BackgroundPanel background = new BackgroundPanel(new ImageIcon(("Assets\\CardsImgs\\BlackJackBoard.png")).getImage(),player,dealer,deck);
 
@@ -87,6 +87,7 @@ public class GameGui extends Main{
         continueButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 for (int i = 0; i < 3; i++) {
                     background.cards[i] = background.cards[i+1];
                 }
@@ -98,13 +99,14 @@ public class GameGui extends Main{
                     //https://stackoverflow.com/questions/17979438/how-to-perform-action-on-ok-of-joptionpane-showmessagedialog
                     background.paintComponent(background.getGraphics());
                     JOptionPane.showMessageDialog(frameGame, "You went BUST! :(", "Game Over", JOptionPane.ERROR_MESSAGE);
-                    player.setBalance((getEnteredBal() - player.getBalance()));
+                    int bal = (player.getBalance() - getEnteredBal());
+                    player.setBalance(bal);
                     setGameOver(true);
                     setPlayerWon(false);
-                    player.setCards(new ArrayList<Card>());
+                    player.getCards().clear();
+                    dealer.getCards().clear();
                     frameGame.dispose();
                 }
-
 
             }
         });
@@ -112,27 +114,50 @@ public class GameGui extends Main{
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(dealer.allCardVal()<17){
-                    dealer.underSeventeen(deck);
-                    for (int i = 0; i < 3; i++) {
-                        background.dealerCards[i] = background.dealerCards[i+1];
-                        background.dealerCards[3] = dealer.getCards().get(dealer.getCards().size()-1);
-                    }
-
+                dealer.underSeventeen(deck);
+                for (int i = 0; i < 3; i++) {
+                    background.dealerCards[i] = background.dealerCards[i+1];
                 }
-                if(dealer.isBust() || dealer.allCardVal() > 17){
-                    background.paintComponent(background.getGraphics());
+                background.paintComponent(background.getGraphics());
+                if(dealer.isBust()){
                     JOptionPane.showMessageDialog(frameGame, "You WON! $$$", "Game Over", JOptionPane.PLAIN_MESSAGE);
-                    player.setBalance((enteredBal + player.getBalance()));
-                    dealer.setCards(new ArrayList<Card>());
                     setGameOver(true);
                     setPlayerWon(true);
+                    int bal = (getEnteredBal() + player.getBalance());
+                    player.setBalance(bal);
+                    player.getCards().clear();
+                    dealer.getCards().clear();
+                    frameGame.dispose();
                 }
-
+                if(!dealer.isBust() && dealer.allCardVal() > player.allCardVal()){
+                    JOptionPane.showMessageDialog(frameGame, "You WON! $$$", "Game Over", JOptionPane.PLAIN_MESSAGE);
+                    setGameOver(true);
+                    setPlayerWon(true);
+                    int bal = (getEnteredBal() + player.getBalance());
+                    player.setBalance(bal);
+                    player.getCards().clear();
+                    dealer.getCards().clear();
+                    frameGame.dispose();
+                }
+                if(!dealer.isBust() && dealer.allCardVal() < player.allCardVal()){
+                    JOptionPane.showMessageDialog(frameGame, "You LOST! :(", "Game Over", JOptionPane.ERROR_MESSAGE);
+                    setGameOver(true);
+                    setPlayerWon(false);
+                    int bal = (player.getBalance() - getEnteredBal());
+                    player.setBalance(bal);
+                    player.getCards().clear();
+                    dealer.getCards().clear();
+                    frameGame.dispose();
+                }
             }
         });
 
         frameGame.setVisible(true);
-        JOptionPane.showInputDialog("");
+        setEnteredBal(Integer.parseInt(JOptionPane.showInputDialog("Please place a bet")));
     }
 }
+/*
+*
+*
+*
+* */
