@@ -3,7 +3,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-
+/**
+ * This is the main class which also contains the methods for the main menu jframe
+ * **/
 public class Main {
     public static void main(String[] args) {
         Deck deck = new Deck();

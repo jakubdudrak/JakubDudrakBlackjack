@@ -1,5 +1,9 @@
 public class Dealer extends Person{
-
+    /**
+     *
+     * This is the Dealer object class. It inherits from Person
+     *
+     * **/
     public Dealer() {
         super("The House", 500000);
     }

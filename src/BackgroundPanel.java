@@ -3,7 +3,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-
+/**
+ *
+ * This is the Background panel class which generates the 2d graphics for the game
+ *
+ * **/
 //https://tips4java.wordpress.com/2008/10/12/background-panel/ class was refactored to fit this project
 public class BackgroundPanel extends JPanel{
 

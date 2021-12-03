@@ -1,6 +1,10 @@
 import java.io.*;
 import java.util.Scanner;
-
+/**
+ *
+ * This class is a scratch class and provides no functionality
+ *
+ * **/
 public class TestCard {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         Scanner input = new Scanner(System.in);

@@ -1,5 +1,9 @@
 import java.util.ArrayList;
-
+/**
+ *
+ * This is the person super class from which player and dealer inherit
+ *
+ * **/
 public class Person {
     private String name;
     private int balance;

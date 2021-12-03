@@ -8,7 +8,11 @@ import java.util.EventListener;
 
 //https://www.tutorialspoint.com/swing/swing_event_handling.htm
 public class GameGui{
-
+/**
+ *
+ * This class creates the GUI JFrame for the main game
+ *
+ * **/
     private boolean gameOver;
     private boolean playerWon;
     private int enteredBal;

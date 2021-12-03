@@ -6,6 +6,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+/**
+ *
+ * This is the Card object class
+ *
+ * **/
+
 public class Card {
     private String value;
     private String suit;

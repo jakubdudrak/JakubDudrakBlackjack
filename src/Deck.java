@@ -1,6 +1,12 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ *
+ * This is the deck object class. It implements arraylist and a 2d array to create a deck of cards
+ *
+ * **/
+
 public class Deck {
     private ArrayList<Card> cards = new ArrayList<Card>();
 
