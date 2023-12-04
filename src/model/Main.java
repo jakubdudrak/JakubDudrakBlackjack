@@ -1,3 +1,5 @@
+package model;
+
 import controller.GameController;
 import controller.MainMenuController;
 import view.MainMenuGui;

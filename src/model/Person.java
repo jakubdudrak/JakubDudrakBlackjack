@@ -1,4 +1,5 @@
-import model.Card;
+
+package model;
 
 import java.util.ArrayList;
 /**
@@ -51,22 +52,24 @@ public class Person {
     }
 
     public int allCardVal(){
+        if(cardCount() > 21){
+            for (int i = 0; i < getCards().size(); i++) {
+                if(getCards().get(i).getValue().equals("Ace")){
+                    getCards().get(i).setValue("Ace One");
+                    break;
+                }
+            }
+        }
+        return cardCount();
+    }
+    private int cardCount(){
         int counter = 0;
         for (int i = 0; i < getCards().size(); i++) {
             counter += getCards().get(i).convertVal();
         }
         return counter;
     }
-
     public boolean isBust(){
-            if(allCardVal()>21){
-                for (int i = 0; i < getCards().size(); i++) {
-                    if(getCards().get(i).getValue().equals("Ace")){
-                        getCards().get(i).setValue("Ace One");
-                        break;
-                    }
-                }
-            }
 
         if(allCardVal() >21)
             return true;

@@ -1,3 +1,6 @@
+
+package model;
+
 import java.io.*;
 /**
  *
@@ -20,6 +23,6 @@ public class Player extends Person implements Serializable {
     public String toString() {
         return
                 "ID: " +
-                playerID;
+                        playerID;
     }
 }
