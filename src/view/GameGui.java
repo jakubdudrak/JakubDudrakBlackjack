@@ -1,10 +1,12 @@
+import model.Dealer;
+import model.Deck;
+import model.Player;
+import view.BackgroundPanel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-import java.util.EventListener;
 
 //https://www.tutorialspoint.com/swing/swing_event_handling.htm
 public class GameGui{
@@ -96,7 +98,7 @@ public class GameGui{
                     background.cards[i] = background.cards[i+1];
                 }
                 dealer.hitCard(player, deck);
-                playerScore.setText("Player Cards: " + player.allCardVal());
+                playerScore.setText("model.Player Cards: " + player.allCardVal());
                 background.cards[3] = player.getCards().get(player.getCards().size()-1);
                 background.paintComponent(background.getGraphics());
                 if(player.isBust()){

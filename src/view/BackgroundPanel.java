@@ -1,7 +1,10 @@
+import model.Card;
+import model.Dealer;
+import model.Deck;
+import model.Player;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 /**
  *
@@ -19,7 +22,7 @@ public class BackgroundPanel extends JPanel{
                     new Card("Back", "Spades"),new Card("Back", "Spades")};
 
 
-        public BackgroundPanel(Image background,Player player, Dealer dealer, Deck deck){
+        public BackgroundPanel(Image background, Player player, Dealer dealer, Deck deck){
             this.background = background;
 
 
